@@ -4,31 +4,129 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Melodia</title>
+    <!-- Google Fonts: Poppins -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            fontFamily: { sans: ["Poppins", "ui-sans-serif", "system-ui"] },
+            colors: {
+              primary: {
+                50: '#ecfeff',
+                100: '#cffafe',
+                200: '#a5f3fc',
+                300: '#67e8f9',
+                400: '#22d3ee',
+                500: '#06b6d4',
+                600: '#0891b2',
+                700: '#0e7490',
+                800: '#155e75',
+                900: '#164e63'
+              }
+            },
+            boxShadow: {
+              soft: '0 8px 0 0 rgba(0,0,0,0.25)'
+            }
+          }
+        }
+      }
+    </script>
+    <!-- Font Awesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkfN1B0Zk8zZ1ZSmHgwl/1Z3VQ8QWf9GZ8dP+2a0uQHz7sO3v5x6N9R8Q==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+    <style>
+      .stroke-shadow { box-shadow: 0 0 0 2px rgba(0,0,0,0.8) inset; }
+      /* notas (esquerda) */
+      .note-bg { position: absolute; opacity: .9; }
+  .note-left { left: -110px; top: 120px; transform: none; }
+  .note-left-img { width: clamp(380px, 36vw, 700px); pointer-events: none; transform: none !important; }
+  @media (max-width: 640px) { .note-left { top: 108px; left: -80px; } .note-left-img { width: clamp(300px, 54vw, 500px); } }
+  @media (min-width: 1280px) { .note-left { top: 140px; left: -120px; } }
+
+    /* notas (direita) */
+  .note-right { right: -110px; top: 143px; transform: none; }
+  .note-right-img { width: clamp(380px, 36vw, 700 px); pointer-events: none; }
+  @media (max-width: 640px) { .note-right { top: 126px; right: -80px; } .note-right-img{ width: clamp(300px, 54vw, 500px); } }
+  @media (min-width: 1280px) { .note-right { top: 163px; right: -120px; } }
+    </style>
 </head>
-<body>
-  <header>
-    <h1>Melodia</h1>
-    <nav>
-      <ul>
-        <li><a href="#beneficios">Benefícios</a></li>
-        <li><a href="#funcionalidades">Funcionalidades</a></li>
-        <li><a href="#feedback">Feedback</a></li>
-        <li><a href="#contato">Contato</a></li>
-      </ul>
-    </nav>
-    <a href="#comecar">Começar Grátis</a>
-  </header>
+<body class="font-sans text-slate-900">
+  <!-- Hero Wrapper with gradient background and top border -->
+  <div class="relative overflow-hidden border-b-4 border-black" style="background: linear-gradient(90deg,#5de0e6 0%, #004aad 100%);">
+    <!-- Header -->
+    <header class="max-w-6xl mx-auto px-4 pt-5">
+      <div class="flex items-center justify-between rounded-xl pb-3">
+        <!-- Logo / Brand -->
+        <a href="#inicio" class="flex items-center gap-3">
+          <div class="w-12 h-12 rounded-xl border-2 border-black shadow-[4px_4px_0_0_rgba(0,0,0,0.8)] overflow-hidden">
+            <img src="assets/logo.png" alt="Logo Melodia" class="w-full h-full object-cover" />
+          </div>
+          <div class="leading-tight">
+            <div class="text-xl font-semibold text-slate-900">Melodia</div>
+            <div class="text-xs font-medium text-slate-900">Sua música, Sua forma!</div>
+          </div>
+        </a>
 
-  <section id="inicio">
-    <h2>Melodia</h2>
-    <h3>Sua música, Sua forma!</h3>
-    <p>Descubra, crie e compartilhe melodias incríveis.<br>
-       A plataforma completa para músicos e amantes da música.</p>
-    <a href="#ouvir">Ouvir Agora</a>
-    <a href="#baixar">Baixar App</a>
-  </section>
+        <!-- Nav -->
+        <nav class="hidden md:flex gap-8 font-semibold text-slate-900">
+          <a href="#beneficios" class="hover:underline">Benefícios</a>
+          <a href="#funcionalidades" class="hover:underline">Funcionalidades</a>
+          <a href="#feedback" class="hover:underline">Feedback</a>
+          <a href="#contato" class="hover:underline">Contato</a>
+        </nav>
 
-  <section id="beneficios">
+        <!-- CTA -->
+        <a href="#comecar" class="ml-6 inline-block bg-sky-400 text-slate-900 font-semibold px-5 py-2 rounded-xl border-2 border-black shadow-[4px_4px_0_0_rgba(0,0,0,0.8)] hover:translate-y-0.5 hover:shadow-[2px_2px_0_0_rgba(0,0,0,0.8)] transition-transform">Começar Grátis</a>
+      </div>
+    </header>
+
+    <!-- Divider line under header -->
+    <div class="h-[2px] bg-black/80"></div>
+
+  <!-- Elemento musical (esquerda) -->
+  <img src="assets/notes-left.png" alt="Elemento musical" class="note-bg note-left note-left-img" aria-hidden="true" />
+  <!-- Elemento musical (direita) -->
+  <img src="assets/notes-right.png" alt="Elemento musical" class="note-bg note-right note-right-img" aria-hidden="true" />
+
+    <!-- Hero Section -->
+    <section id="inicio" class="relative max-w-6xl mx-auto px-4 py-14 md:py-16 text-center text-slate-900">
+      <h2 class="text-4xl font-semibold">Melodia</h2>
+      <p class="mt-2 text-6xl md:text-8xl xl:text-9xl font-extrabold leading-none tracking-tight text-white">Sua música</p>
+      <p class="mt-1 text-6xl md:text-8xl xl:text-9xl font-extrabold leading-none tracking-tight">Sua forma!</p>
+      <p class="mt-6 text-lg md:text-xl font-semibold max-w-3xl mx-auto">Descubra, crie e compartilhe melodias incríveis.<br> A plataforma completa para músicos e amantes da música.</p>
+
+      <div class="mt-10 flex flex-col sm:flex-row items-center justify-center gap-6">
+        <a href="#ouvir" class="group inline-flex items-center gap-3 px-7 py-3 rounded-full bg-transparent border-2 border-slate-900 text-slate-900 font-semibold shadow-[4px_4px_0_0_rgba(0,0,0,0.8)] hover:translate-y-0.5 hover:shadow-[2px_2px_0_0_rgba(0,0,0,0.8)] transition-all">
+          <span class="grid place-items-center w-8 h-8 rounded-full border border-slate-900 text-slate-900">
+            <!-- inline play icon -->
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="16" height="16" fill="currentColor" aria-hidden="true" focusable="false">
+              <path d="M8 5v14l11-7-11-7z"/>
+            </svg>
+          </span>
+          Ouvir Agora
+        </a>
+
+        <a href="#baixar" class="group inline-flex items-center gap-3 px-7 py-3 rounded-full bg-transparent border-2 border-slate-900 text-slate-900 font-semibold shadow-[4px_4px_0_0_rgba(0,0,0,0.8)] hover:translate-y-0.5 hover:shadow-[2px_2px_0_0_rgba(0,0,0,0.8)] transition-all">
+          <span class="grid place-items-center w-8 h-8 rounded-full border border-slate-900 text-slate-900">
+            <!-- inline download icon -->
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="16" height="16" fill="currentColor" aria-hidden="true" focusable="false">
+              <path d="M12 3v10.586l3.293-3.293 1.414 1.414L12 17.414l-4.707-4.707 1.414-1.414L11 13.586V3h2z"/>
+              <path d="M5 19h14v2H5z"/>
+            </svg>
+          </span>
+          Baixar App
+        </a>
+      </div>
+    </section>
+  </div>
+
+  <section id="beneficios" class="max-w-6xl mx-auto px-4 py-12">
     <h2>Principais benefícios</h2>
     <p>Tudo que você precisa para criar, descobrir e compartilhar música!</p>
     <ul>
