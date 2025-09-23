@@ -1,9 +1,9 @@
 # Integrantes: 
 
-# Igor Nascimento
-# Vitor Pallis
-# Miguel Manfré
-# João Victor Toledo
+## Igor Nascimento
+## Vitor Pallis
+## Miguel Manfré
+## João Victor Toledo
 
 #  Melodia - Sua Música, Sua Forma!
 
