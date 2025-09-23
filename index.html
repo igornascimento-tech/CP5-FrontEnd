@@ -43,20 +43,23 @@
 
     <style>
       .stroke-shadow { box-shadow: 0 0 0 2px rgba(0,0,0,0.8) inset; }
-      /* notas (esquerda) */
-      .note-bg { position: absolute; opacity: .9; }
-  .note-left { left: -110px; top: 120px; transform: none; }
-  .note-left-img { width: clamp(380px, 36vw, 700px); pointer-events: none; transform: none !important; }
-  @media (max-width: 768px) { .note-left { display: none; } }
-  @media (max-width: 1024px) { .note-left { display: none; } }
-  @media (min-width: 1280px) { .note-left { top: 140px; left: -120px; } }
-
-    /* notas (direita) */
-  .note-right { right: -110px; top: 143px; transform: none; }
-  .note-right-img { width: clamp(380px, 36vw, 700 px); pointer-events: none; }
-  @media (max-width: 768px) { .note-right { display: none; } }
-  @media (max-width: 1024px) { .note-right { display: none; } }
-  @media (min-width: 1280px) { .note-right { top: 163px; right: -120px; } }
+      /* notas (esquerda e direita) - ocultas por padrão */
+      .note-bg { position: absolute; opacity: .9; display: none; }
+      
+      /* Mostra as notas em telas desktop normais (sem precisar F11) */
+      @media (min-width: 1440px) {
+        .note-bg { display: block; }
+        .note-left { left: -110px; top: 120px; transform: none; }
+        .note-left-img { width: clamp(380px, 36vw, 700px); pointer-events: none; transform: none !important; }
+        .note-right { right: -110px; top: 143px; transform: none; }
+        .note-right-img { width: clamp(380px, 36vw, 700px); pointer-events: none; }
+      }
+      
+      /* Para telas maiores, ajusta posicionamento */
+      @media (min-width: 1920px) {
+        .note-left { top: 140px; left: -120px; }
+        .note-right { top: 163px; right: -120px; }
+      }
     </style>
 </head>
 <body class="font-sans text-slate-900">
@@ -98,13 +101,13 @@
   <img src="assets/notes-right.png" alt="Elemento musical" class="note-bg note-right note-right-img" aria-hidden="true" />
 
     <!-- Hero Section -->
-    <section id="inicio" class="relative max-w-6xl mx-auto px-4 py-14 md:py-16 text-center text-slate-900">
+    <section id="inicio" class="relative max-w-6xl mx-auto px-4 py-8 md:py-10 text-center text-slate-900">
       <h2 class="text-4xl font-semibold">Melodia</h2>
       <p class="mt-2 text-6xl md:text-8xl xl:text-9xl font-extrabold leading-none tracking-tight text-white">Sua música</p>
       <p class="mt-1 text-6xl md:text-8xl xl:text-9xl font-extrabold leading-none tracking-tight">Sua forma!</p>
-      <p class="mt-6 text-lg md:text-xl font-semibold max-w-3xl mx-auto">Descubra, crie e compartilhe melodias incríveis.<br> A plataforma completa para músicos e amantes da música.</p>
+      <p class="mt-4 text-lg md:text-xl font-semibold max-w-3xl mx-auto">Descubra, crie e compartilhe melodias incríveis.<br> A plataforma completa para músicos e amantes da música.</p>
 
-      <div class="mt-10 flex flex-col sm:flex-row items-center justify-center gap-6">
+      <div class="mt-6 flex flex-col sm:flex-row items-center justify-center gap-6">
         <a href="#player" class="group inline-flex items-center gap-3 px-7 py-3 rounded-full bg-transparent border-2 border-slate-900 text-slate-900 font-semibold shadow-[4px_4px_0_0_rgba(0,0,0,0.8)] hover:translate-y-0.5 hover:shadow-[2px_2px_0_0_rgba(0,0,0,0.8)] transition-all">
           <span class="grid place-items-center w-8 h-8 rounded-full border border-slate-900 text-slate-900">
             <!-- inline play icon -->
@@ -129,9 +132,9 @@
     </section>
   </div>
 
-  <section id="beneficios" class="max-w-6xl mx-auto px-4 py-12">
+  <section id="beneficios" class="max-w-6xl mx-auto px-4 py-8">
     <h2 class="font-black text-3xl text-center mb-2">Principais benefícios</h2>
-    <p class="text-center font-semibold mb-10">Tudo que você precisa para criar, descobrir e compartilhar música!</p>
+    <p class="text-center font-semibold mb-6">Tudo que você precisa para criar, descobrir e compartilhar música!</p>
     <ul class="grid grid-cols-1 md:grid-cols-3 gap-8 justify-items-center">
       <li class="rounded-lg p-6 flex flex-col items-center text-center max-w-sm" style="background: linear-gradient(90deg,#5de0e6 0%, #004aad 100%);">
         <img src="https://cdn.pixabay.com/photo/2015/05/11/22/11/musical-notes-763190_1280.png" alt="imagem musica" class="w-20 h-20 object-contain mb-4">
@@ -151,9 +154,9 @@
     </ul>
   </section>
 
-  <section id="funcionalidades" class="pt-10 pb-20" style="background: linear-gradient(90deg,#5de0e6 0%, #004aad 100%);">
+  <section id="funcionalidades" class="pt-6 pb-8" style="background: linear-gradient(90deg,#5de0e6 0%, #004aad 100%);">
     <div class="max-w-6xl mx-auto px-4">
-      <h2 class="font-bold text-4xl mb-10 text-center">Funcionalidades</h2>
+      <h2 class="font-bold text-4xl mb-6 text-center">Funcionalidades</h2>
       <ul class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 justify-items-center">
         <li class="text-center flex flex-col items-center max-w-xs">
           <h3 class="font-bold text-xl mb-4">Player minimalista</h3>
@@ -189,15 +192,15 @@
     </div>
   </section>
 
-  <section id="player" class="max-w-6xl mx-auto px-4 py-20">
-    <div class="text-center mb-10">
+  <section id="player" class="max-w-6xl mx-auto px-4 py-12">
+    <div class="text-center mb-6">
       <h2 class="font-black text-4xl mb-3">Player Profissional</h2>
       <p class="font-black text-xl">Experimente nossa interface intuitiva</p>
     </div>
     
-    <div class="max-w-lg mx-auto p-8 rounded-3xl" style="background: linear-gradient(90deg,#9d5de6 0%,#5da8e6 100%);">
+    <div class="max-w-7xl mx-auto p-8 rounded-3xl" style="background: linear-gradient(90deg,#5de0e6 0%, #004aad 100%);">
       <!-- Título da música -->
-      <p class="text-center font-semibold mb-6 text-lg">Swing</p>
+      <p class="text-center font-semibold mb-6 text-lg text-white">Swing</p>
       
       <!-- Capa do álbum -->
       <div class="flex justify-center mb-6">
@@ -205,7 +208,7 @@
       </div>
       
       <!-- Artista -->
-      <p class="text-center text-sm font-medium mb-6">peyruis</p>
+      <p class="text-center text-sm font-medium mb-6 text-white">peyruis</p>
       
       <!-- Barra de progresso com tempo -->
       <div class="mb-6">
@@ -217,28 +220,28 @@
       </div>
       
       <!-- Controles do player -->
-      <div class="flex justify-center items-center gap-6 mb-6">
+      <div class="flex justify-center items-center gap-8 mb-6">
         <img src="./assets/setaEsquerda.png" alt="Música anterior" class="w-8 h-8 hover:cursor-pointer hover:opacity-80 transition-opacity">
-        <img src="https://svgsilh.com/svg_v2/888513.svg" alt="Play/Pause" class="w-12 h-12 hover:cursor-pointer hover:opacity-80 transition-opacity">
+        <img src="https://svgsilh.com/svg_v2/888513.svg" alt="Play/Pause" class="w-14 h-14 hover:cursor-pointer hover:opacity-80 transition-opacity">
         <img src="./assets/setaDiteita.png" alt="Próxima música" class="w-8 h-8 hover:cursor-pointer hover:opacity-80 transition-opacity">
       </div>
       
       <!-- Controles adicionais -->
-      <div class="space-y-4">
+      <div class="space-y-6">
         <!-- Controle de volume -->
-        <div class="flex items-center gap-3">
-          <svg class="w-5 h-5 text-white" fill="currentColor" viewBox="0 0 20 20">
+        <div class="flex items-center justify-center gap-4">
+          <svg class="w-5 h-5 text-white flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
             <path fill-rule="evenodd" d="M9.383 3.076A1 1 0 0110 4v12a1 1 0 01-1.617.816L4.29 13.37a.5.5 0 00-.303-.107H3a1 1 0 01-1-1V7.737a1 1 0 011-1h.987a.5.5 0 00.303-.107l4.093-3.446z" clip-rule="evenodd"></path>
             <path d="M12.293 7.293a1 1 0 011.414 0L15 8.586l1.293-1.293a1 1 0 111.414 1.414L16.414 10l1.293 1.293a1 1 0 01-1.414 1.414L15 11.414l-1.293 1.293a1 1 0 01-1.414-1.414L13.586 10l-1.293-1.293a1 1 0 010-1.414z"></path>
           </svg>
-          <input type="range" class="flex-1 accent-black" value="75" max="100" aria-label="Volume">
-          <span class="text-xs text-white w-8">75%</span>
+          <input type="range" class="flex-1 max-w-xs accent-black" value="75" max="100" aria-label="Volume">
+          <span class="text-xs text-white w-10 text-center flex-shrink-0">75%</span>
         </div>
         
         <!-- Botões de funcionalidades -->
-        <div class="flex justify-center gap-4">
+        <div class="flex justify-center">
           <!-- Botão Ver Letras -->
-          <button class="flex items-center gap-2 bg-black/20 hover:bg-black/30 px-4 py-2 rounded-lg text-white text-sm font-medium transition-colors">
+          <button class="flex items-center gap-2 bg-black/20 hover:bg-black/30 px-6 py-3 rounded-lg text-white text-sm font-medium transition-colors">
             <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"></path>
             </svg>
@@ -291,39 +294,96 @@
         <div id="carousel-track" class="flex transition-transform duration-500 ease-in-out">
           
           <!-- Slide 1 -->
-          <div class="w-full flex-shrink-0 bg-gray-50 p-8 rounded-2xl mx-4">
+          <div class="w-full flex-shrink-0 bg-gray-50 p-8 rounded-2xl">
             <div class="flex items-center mb-4">
               <img src="https://images.unsplash.com/photo-1580489944761-15a19d654956?q=80&w=761&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" 
                     alt="Marina Duarte" class="w-12 h-12 rounded-full mr-4">
-              <div>
+              <div class="flex-1">
                 <h3 class="font-bold text-lg text-gray-900">Marina Duarte</h3>
-                <p class="text-gray-500 text-sm">@marinaduarte</p>
+                <p class="text-gray-500 text-sm mb-2">@marinaduarte</p>
+                <!-- Estrelas de avaliação -->
+                <div class="flex items-center gap-1">
+                  <svg class="w-4 h-4 text-yellow-400 fill-current" viewBox="0 0 24 24">
+                    <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/>
+                  </svg>
+                  <svg class="w-4 h-4 text-yellow-400 fill-current" viewBox="0 0 24 24">
+                    <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/>
+                  </svg>
+                  <svg class="w-4 h-4 text-yellow-400 fill-current" viewBox="0 0 24 24">
+                    <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/>
+                  </svg>
+                  <svg class="w-4 h-4 text-yellow-400 fill-current" viewBox="0 0 24 24">
+                    <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/>
+                  </svg>
+                  <svg class="w-4 h-4 text-yellow-400 fill-current" viewBox="0 0 24 24">
+                    <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/>
+                  </svg>
+                  <span class="text-sm text-gray-600 ml-1">5.0</span>
+                </div>
               </div>
             </div>
             <p class="text-gray-700 text-lg leading-relaxed">"O modo de foco do Melodia me ajudou a estudar por horas. Recomendações certeiras e um player lindo!"</p>
           </div>
 
           <!-- Slide 2 -->
-          <div class="w-full flex-shrink-0 bg-gray-50 p-8 rounded-2xl mx-4">
+          <div class="w-full flex-shrink-0 bg-gray-50 p-8 rounded-2xl">
             <div class="flex items-center mb-4">
               <img src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=50&h=50&fit=crop&crop=face&rounded=full" 
                   alt="Carlos Silva" class="w-12 h-12 rounded-full mr-4">
-              <div>
+              <div class="flex-1">
                 <h3 class="font-bold text-lg text-gray-900">Carlos Silva</h3>
-                <p class="text-gray-500 text-sm">@carlosmusic</p>
+                <p class="text-gray-500 text-sm mb-2">@carlosmusic</p>
+                <!-- Estrelas de avaliação -->
+                <div class="flex items-center gap-1">
+                  <svg class="w-4 h-4 text-yellow-400 fill-current" viewBox="0 0 24 24">
+                    <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/>
+                  </svg>
+                  <svg class="w-4 h-4 text-yellow-400 fill-current" viewBox="0 0 24 24">
+                    <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/>
+                  </svg>
+                  <svg class="w-4 h-4 text-yellow-400 fill-current" viewBox="0 0 24 24">
+                    <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/>
+                  </svg>
+                  <svg class="w-4 h-4 text-yellow-400 fill-current" viewBox="0 0 24 24">
+                    <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/>
+                  </svg>
+                  <svg class="w-4 h-4 text-yellow-400 fill-current" viewBox="0 0 24 24">
+                    <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/>
+                  </svg>
+                  <span class="text-sm text-gray-600 ml-1">5.0</span>
+                </div>
               </div>
             </div>
             <p class="text-gray-700 text-lg leading-relaxed">"Finalmente um app que entende músicos! As ferramentas de composição são incríveis."</p>
           </div>
 
           <!-- Slide 3 -->
-          <div class="w-full flex-shrink-0 bg-gray-50 p-8 rounded-2xl mx-4">
+          <div class="w-full flex-shrink-0 bg-gray-50 p-8 rounded-2xl">
             <div class="flex items-center mb-4">
               <img src="https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=50&h=50&fit=crop&crop=face&rounded=full" 
                   alt="Ana Costa" class="w-12 h-12 rounded-full mr-4">
-              <div>
+              <div class="flex-1">
                 <h3 class="font-bold text-lg text-gray-900">Ana Costa</h3>
-                <p class="text-gray-500 text-sm">@anacosta</p>
+                <p class="text-gray-500 text-sm mb-2">@anacosta</p>
+                <!-- Estrelas de avaliação -->
+                <div class="flex items-center gap-1">
+                  <svg class="w-4 h-4 text-yellow-400 fill-current" viewBox="0 0 24 24">
+                    <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/>
+                  </svg>
+                  <svg class="w-4 h-4 text-yellow-400 fill-current" viewBox="0 0 24 24">
+                    <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/>
+                  </svg>
+                  <svg class="w-4 h-4 text-yellow-400 fill-current" viewBox="0 0 24 24">
+                    <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/>
+                  </svg>
+                  <svg class="w-4 h-4 text-yellow-400 fill-current" viewBox="0 0 24 24">
+                    <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/>
+                  </svg>
+                  <svg class="w-4 h-4 text-yellow-400 fill-current" viewBox="0 0 24 24">
+                    <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/>
+                  </svg>
+                  <span class="text-sm text-gray-600 ml-1">5.0</span>
+                </div>
               </div>
             </div>
             <p class="text-gray-700 text-lg leading-relaxed">"A qualidade do streaming é excepcional e descobri tantos artistas novos!"</p>
@@ -347,7 +407,7 @@
       </div>
       <!-- Dots -->
       <div class="absolute right-8 bottom-1 flex space-x-2">
-        <button class="dot w-2 h-2 rounded-full bg-purple-600 transition-all" data-slide="0"></button>
+        <button class="dot w-2 h-2 rounded-full bg-[#004aad] transition-all" data-slide="0"></button>
         <button class="dot w-2 h-2 rounded-full bg-gray-300 hover:bg-gray-400 transition-all" data-slide="1"></button>
         <button class="dot w-2 h-2 rounded-full bg-gray-300 hover:bg-gray-400 transition-all" data-slide="2"></button>
       </div>
@@ -366,9 +426,9 @@
       dots.forEach((dot, index) => {
         if (index === currentSlide) {
           dot.classList.remove('bg-gray-300');
-          dot.classList.add('bg-purple-600');
+          dot.classList.add('bg-[#004aad]');
         } else {
-          dot.classList.remove('bg-purple-600');
+          dot.classList.remove('bg-[#004aad]');
           dot.classList.add('bg-gray-300');
         }
       });
@@ -395,70 +455,138 @@
     });
   </script>
 
-  <section id="contato" class="flex justify-center gap-20 mb-10">
-    <div class="flex flex-col gap-4 max-w-lg self-start mr-20">
-      <div class="flex flex-col gap-4">
-        <h2 class="font-bold text-4xl">Fale com a gente</h2>
-        <p class="text-xl text-gray-500">Coletamos e-mails para futuras campanhas e, se quiser, envie sua foto de perfil para aparecer em destaques da comunidade.</p>
+  <section id="contato" class="max-w-6xl mx-auto px-4 py-12 mb-10">
+    <div class="flex flex-col lg:flex-row lg:items-start lg:gap-20 gap-12">
+      <!-- Coluna esquerda - Informações -->
+      <div class="flex flex-col gap-4 lg:max-w-lg lg:flex-1">
+        <div class="flex flex-col gap-4">
+          <h2 class="font-bold text-3xl md:text-4xl">Fale com a gente</h2>
+          <p class="text-lg md:text-xl text-gray-500">Coletamos e-mails para futuras campanhas e, se quiser, envie sua foto de perfil para aparecer em destaques da comunidade.</p>
+        </div>
+        <div class="flex flex-col gap-4 mt-6 lg:mt-10">
+          <div class="flex items-center gap-2">
+            <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#004aad" class="flex-shrink-0"><path d="M160-160q-33 0-56.5-23.5T80-240v-480q0-33 23.5-56.5T160-800h640q33 0 56.5 23.5T880-720v480q0 33-23.5 56.5T800-160H160Zm320-280L160-640v400h640v-400L480-440Zm0-80 320-200H160l320 200ZM160-640v-80 480-400Z"/></svg>
+            <p class="text-lg md:text-xl text-gray-500">Receba novidades e convites para o beta</p>
+          </div>
+          <div class="flex items-center gap-2">
+            <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#004aad" class="flex-shrink-0"><path d="M480-480q-66 0-113-47t-47-113q0-66 47-113t113-47q66 0 113 47t47 113q0 66-47 113t-113 47ZM160-160v-112q0-34 17.5-62.5T224-378q62-31 126-46.5T480-440q66 0 130 15.5T736-378q29 15 46.5 43.5T800-272v112H160Zm80-80h480v-32q0-11-5.5-20T700-306q-54-27-109-40.5T480-360q-56 0-111 13.5T260-306q-9 5-14.5 14t-5.5 20v32Zm240-320q33 0 56.5-23.5T560-640q0-33-23.5-56.5T480-720q-33 0-56.5 23.5T400-640q0 33 23.5 56.5T480-560Zm0-80Zm0 400Z"/></svg>
+            <p class="text-lg md:text-xl text-gray-500">Upload de foto de perfil (opcional)</p>
+          </div>
+          <div class="flex items-center gap-2">
+            <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#004aad" class="flex-shrink-0"><path d="M480-80q-139-35-229.5-159.5T160-516v-244l320-120 320 120v244q0 152-90.5 276.5T480-80Zm0-84q104-33 172-132t68-220v-189l-240-90-240 90v189q0 121 68 220t172 132Zm0-316Z"/></svg>
+            <p class="text-lg md:text-xl text-gray-500">Seus dados são tratados com segurança</p>
+          </div>
+        </div>
       </div>
-      <div class="flex flex-col gap-4 mt-10">
-        <div class="flex items-center gap-2">
-          <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#7b3aec"><path d="M160-160q-33 0-56.5-23.5T80-240v-480q0-33 23.5-56.5T160-800h640q33 0 56.5 23.5T880-720v480q0 33-23.5 56.5T800-160H160Zm320-280L160-640v400h640v-400L480-440Zm0-80 320-200H160l320 200ZM160-640v-80 480-400Z"/></svg>
-          <p class="text-xl text-gray-500">Receba novidades e convites para o beta</p>
-        </div>
-        <div class="flex items-center gap-2">
-          <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#7b3aec"><path d="M480-480q-66 0-113-47t-47-113q0-66 47-113t113-47q66 0 113 47t47 113q0 66-47 113t-113 47ZM160-160v-112q0-34 17.5-62.5T224-378q62-31 126-46.5T480-440q66 0 130 15.5T736-378q29 15 46.5 43.5T800-272v112H160Zm80-80h480v-32q0-11-5.5-20T700-306q-54-27-109-40.5T480-360q-56 0-111 13.5T260-306q-9 5-14.5 14t-5.5 20v32Zm240-320q33 0 56.5-23.5T560-640q0-33-23.5-56.5T480-720q-33 0-56.5 23.5T400-640q0 33 23.5 56.5T480-560Zm0-80Zm0 400Z"/></svg>
-          <p class="text-xl text-gray-500">Upload de foto de perfil (opcional)</p>
-        </div>
-        <div class="flex items-center gap-2">
-          <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#7b3aec"><path d="M480-80q-139-35-229.5-159.5T160-516v-244l320-120 320 120v244q0 152-90.5 276.5T480-80Zm0-84q104-33 172-132t68-220v-189l-240-90-240 90v189q0 121 68 220t172 132Zm0-316Z"/></svg>
-          <p class="text-xl text-gray-500">Seus dados são tratados com segurança</p>
-        </div>
+      
+      <!-- Coluna direita - Formulário -->
+      <div class="lg:flex-1 lg:max-w-lg">
+        <form class="flex flex-col gap-4">
+          <label class="text-lg font-medium">Nome</label>
+          <input class="border border-gray-300 p-3 rounded-xl focus:outline-none focus:ring-2 focus:ring-[#004aad] focus:border-transparent transition-all" type="text" name="nome" placeholder="Seu nome" required>
+          
+          <label class="text-lg font-medium">E-mail</label>
+          <input class="border border-gray-300 p-3 rounded-xl focus:outline-none focus:ring-2 focus:ring-[#004aad] focus:border-transparent transition-all" type="email" name="email" placeholder="voce@exemplo.com" required>
+          
+          <label class="text-lg font-medium">Foto de perfil (opcional)</label>
+          <input class="file:bg-[#004aad] file:rounded-xl file:text-white file:font-semibold file:border-0 file:p-3 file:cursor-pointer file:hover:bg-[#003388] file:transition-colors border border-gray-300 rounded-xl focus:outline-none focus:ring-2 focus:ring-[#004aad]" type="file" name="foto">
+          
+          <div class="flex items-start gap-2 mt-2">
+            <input class="appearance-none w-5 h-5 border-2 border-gray-300 rounded bg-white checked:bg-[#004aad] checked:border-[#004aad] focus:outline-none cursor-pointer mt-0.5 flex-shrink-0" type="checkbox" name="consent" required>
+            <label class="text-base md:text-lg text-gray-500 leading-relaxed">Concordo em receber comunicações de marketing.</label>
+          </div>
+          
+          <button class="text-lg font-semibold bg-[#004aad] hover:bg-[#003388] hover:scale-105 text-white py-3 px-4 rounded-xl transition-all mt-4 w-full" type="submit">
+            <i class="fas fa-paper-plane"></i> Enviar
+          </button>
+        </form>
       </div>
     </div>
-    <form class="flex flex-col gap-4 ml-20">
-      <label class="text-1xl">Nome</label>
-      <input class="border p-3 rounded-xl" type="text" name="nome" placeholder="Seu nome" required>
-      <label class="text-1xl">E-mail</label>
-      <input class="border p-3 rounded-xl" type="email" name="email" placeholder="voce@exemplo.com" required>
-      <label class="text-1xl">Foto de perfil (opcional)</label>
-      <input class="file:bg-[#7b3aec] file:rounded-xl file:text-white file:font-semibold file:border-0 file:p-3 file:cursor-pointer file:hover:bg-[#6f2cbb]" type="file" name="foto">
-      <div class="flex items-center gap-2">
-        <input class="appearance-none w-5 h-5 border-2 border-gray-300 rounded-full bg-white checked:bg-[#7b3aec] checked:border-[#7b3aec] focus:outline-none cursor-pointer" type="checkbox" name="consent" required>
-        <label class="text-xl text-gray-500 max-w-lg">Concordo em receber comunicações de marketing.</label>
-      </div>
-      <button class="text-xl font-semibold bg-[#7b3aec] hover:bg-[#6f2cbb] hover:scale-105 text-white py-3 px-4 rounded-xl transition-all" type="submit"><i class="fas fa-paper-plane"></i>  Enviar</button>
-    </form>
   </section>
 
-  <footer class="flex items-center justify-between" style="background: linear-gradient(30deg,#9d5de6 0%,#5da8e6 100%);">
-    <div class="flex items-center gap-2 mb-2 ml-3">
-      <div class="w-15 h-15 mt-3">
-        <img src="assets/logo.png" alt="Logo Melodia" class="w-full h-full object-cover" />
+  <footer class="relative py-6 px-4" style="background: linear-gradient(90deg,#5de0e6 0%, #004aad 100%);">
+    <div class="w-full">
+      
+      <!-- Layout Desktop (md+) -->
+      <div class="hidden md:flex items-center justify-between w-full">
+        
+        <!-- Extremo esquerdo - Logo Melodia -->
+        <div class="flex items-center gap-3 flex-shrink-0">
+          <div class="w-12 h-12">
+            <img src="assets/logo.png" alt="Logo Melodia" class="w-full h-full object-cover rounded-lg" />
+          </div>
+          <div class="leading-tight">
+            <h2 class="text-xl font-bold">Melodia</h2>
+            <p class="text-xs font-bold">© 2025 Melodia.</p>
+            <p class="text-xs font-bold">Todos os direitos reservados.</p>
+          </div>
+        </div>
+        
+        <!-- Centro absoluto - Redes Sociais -->
+        <div class="absolute left-1/2 top-1/2 transform -translate-x-1/2 -translate-y-1/2 flex flex-col items-center">
+          <p class="text-lg font-bold mb-3">Redes Sociais</p>
+          <div class="flex items-center justify-center gap-6">
+            <a href="#" class="hover:scale-110 transition-transform duration-300">
+              <img class="w-10 h-10" src="./assets/instagram-brands-solid-full.svg" alt="Instagram">
+            </a>
+            <a href="#" class="hover:scale-110 transition-transform duration-300">
+              <img class="w-10 h-10" src="./assets/x-twitter-brands-solid-full.svg" alt="Twitter">
+            </a>
+          </div>
+        </div>
+        
+        <!-- Extremo direito - Políticas -->
+        <div class="flex flex-col items-end gap-2 flex-shrink-0">
+          <p class="text-lg font-bold">Políticas</p>
+          <div class="flex flex-col font-bold gap-1 underline text-right text-sm">
+            <a href="#" class="hover:opacity-80 transition-opacity whitespace-nowrap">Política de Privacidade</a>
+            <a href="#" class="hover:opacity-80 transition-opacity whitespace-nowrap">Termos de Uso</a>
+          </div>
+        </div>
+        
       </div>
-      <div class="leading-tight">
-        <h2 class="text-3xl font-bold">Melodia</h2>
-        <p class="text-1xl font-bold">© 2025 Melodia.</p>
-        <p class="text-1xl font-bold">Todos os direitos reservados.</p>
+
+      <!-- Layout Mobile/Tablet (até md) -->
+      <div class="md:hidden space-y-6">
+        
+        <!-- Logo Melodia (centralizado no mobile) -->
+        <div class="flex flex-col items-center text-center">
+          <div class="flex items-center gap-3 mb-2">
+            <div class="w-10 h-10">
+              <img src="assets/logo.png" alt="Logo Melodia" class="w-full h-full object-cover rounded-lg" />
+            </div>
+            <h2 class="text-lg font-bold">Melodia</h2>
+          </div>
+          <div class="text-xs font-bold space-y-1">
+            <p>© 2025 Melodia.</p>
+            <p>Todos os direitos reservados.</p>
+          </div>
+        </div>
+        
+        <!-- Redes Sociais (centralizado) -->
+        <div class="flex flex-col items-center">
+          <p class="text-base font-bold mb-3">Redes Sociais</p>
+          <div class="flex items-center justify-center gap-8">
+            <a href="#" class="hover:scale-110 transition-transform duration-300">
+              <img class="w-12 h-12" src="./assets/instagram-brands-solid-full.svg" alt="Instagram">
+            </a>
+            <a href="#" class="hover:scale-110 transition-transform duration-300">
+              <img class="w-12 h-12" src="./assets/x-twitter-brands-solid-full.svg" alt="Twitter">
+            </a>
+          </div>
+        </div>
+        
+        <!-- Políticas (centralizado) -->
+        <div class="flex flex-col items-center text-center">
+          <p class="text-base font-bold mb-2">Políticas</p>
+          <div class="flex flex-col font-bold gap-2 underline text-sm">
+            <a href="#" class="hover:opacity-80 transition-opacity">Política de Privacidade</a>
+            <a href="#" class="hover:opacity-80 transition-opacity">Termos de Uso</a>
+          </div>
+        </div>
+        
       </div>
-    </div>
-    <div class="flex flex-col items-center mt-4 pl-4 pr-4">
-      <p class="text-xl font-bold">Redes Sociais</p>
-      <div class="flex items-center justify-center gap-16 p-4">
-        <a href="#" class="hover:scale-110 transition-transform">
-          <img class="w-16 h-16" src="./assets/instagram-brands-solid-full.svg" alt="instagram">
-        </a>
-        <a href="#" class="hover:scale-110 transition-transform">
-          <img class="w-16 h-16" src="./assets/x-twitter-brands-solid-full.svg" alt="twitter">
-        </a>
-      </div>
-    </div>
-    <div class="flex flex-col items-center mr-10 gap-3">
-      <p class="text-xl font-bold">Políticas</p>
-      <p class="flex flex-col font-bold gap-3 underline">
-        <a href="#">Política de Privacidade</a>
-        <a href="#">Termos de Uso</a>
-      </p>
+      
     </div>
   </footer>
 
