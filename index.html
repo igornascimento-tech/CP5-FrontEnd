@@ -8,6 +8,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
 
     <!-- Tailwind CSS CDN -->
     <script src="https://cdn.tailwindcss.com"></script>
@@ -44,16 +45,16 @@
       .stroke-shadow { box-shadow: 0 0 0 2px rgba(0,0,0,0.8) inset; }
       /* notas (esquerda) */
       .note-bg { position: absolute; opacity: .9; }
-  .note-left { left: -110px; top: 120px; transform: none; }
-  .note-left-img { width: clamp(380px, 36vw, 700px); pointer-events: none; transform: none !important; }
-  @media (max-width: 640px) { .note-left { top: 108px; left: -80px; } .note-left-img { width: clamp(300px, 54vw, 500px); } }
-  @media (min-width: 1280px) { .note-left { top: 140px; left: -120px; } }
+      .note-left { left: -110px; top: 120px; transform: none; }
+      .note-left-img { width: clamp(380px, 36vw, 700px); pointer-events: none; transform: none !important; }
+      @media (max-width: 640px) { .note-left { top: 108px; left: -80px; } .note-left-img { width: clamp(300px, 54vw, 500px); } }
+      @media (min-width: 1280px) { .note-left { top: 140px; left: -120px; } }
 
-    /* notas (direita) */
-  .note-right { right: -110px; top: 143px; transform: none; }
-  .note-right-img { width: clamp(380px, 36vw, 700 px); pointer-events: none; }
-  @media (max-width: 640px) { .note-right { top: 126px; right: -80px; } .note-right-img{ width: clamp(300px, 54vw, 500px); } }
-  @media (min-width: 1280px) { .note-right { top: 163px; right: -120px; } }
+        /* notas (direita) */
+      .note-right { right: -110px; top: 143px; transform: none; }
+      .note-right-img { width: clamp(380px, 36vw, 700 px); pointer-events: none; }
+      @media (max-width: 640px) { .note-right { top: 126px; right: -80px; } .note-right-img{ width: clamp(300px, 54vw, 500px); } }
+      @media (min-width: 1280px) { .note-right { top: 163px; right: -120px; } }
     </style>
 </head>
 <body class="font-sans text-slate-900">
@@ -184,7 +185,7 @@
     </ul>
   </section>
 
-  <section id="player" class="text-center mt-20 mb-40">
+  <section id="player" class="flex flex-col items-center text-center mt-20 mb-40">
     <h2 class="font-black text-4xl mb-3">Player Profissional</h2>
     <p class="font-black text-l mb-10">Experimente nossa interface intuitiva</p>
     <div class="max-w-[50%] ml-80 pt-7 pb-7 rounded-3xl" style="background: linear-gradient(90deg,#9d5de6 0%,#5da8e6 100%);">
@@ -201,28 +202,187 @@
     </div>
   </section>
 
-  <section id="feedback">
-    <h2>O que dizem os usuários</h2>
-    <!-- comentario do tt -->
+  <section id="feedback" class="mx-auto mb-20">
+    <h2 class="text-3xl font-bold text-center">O que dizem os usuários</h2>
+    
+    <!-- Carousel Container -->
+    <div class="max-w-4xl mx-auto mt-10 relative">
+      <!-- Carousel Wrapper -->
+      <div class="overflow-hidden">
+        <div id="carousel-track" class="flex transition-transform duration-500 ease-in-out">
+          
+          <!-- Slide 1 -->
+          <div class="w-full flex-shrink-0 bg-gray-50 p-8 rounded-2xl mx-4">
+            <div class="flex items-center mb-4">
+              <img src="https://images.unsplash.com/photo-1580489944761-15a19d654956?q=80&w=761&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" 
+                    alt="Marina Duarte" class="w-12 h-12 rounded-full mr-4">
+              <div>
+                <h3 class="font-bold text-lg text-gray-900">Marina Duarte</h3>
+                <p class="text-gray-500 text-sm">@marinaduarte</p>
+              </div>
+            </div>
+            <p class="text-gray-700 text-lg leading-relaxed">"O modo de foco do Melodia me ajudou a estudar por horas. Recomendações certeiras e um player lindo!"</p>
+          </div>
+
+          <!-- Slide 2 -->
+          <div class="w-full flex-shrink-0 bg-gray-50 p-8 rounded-2xl mx-4">
+            <div class="flex items-center mb-4">
+              <img src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=50&h=50&fit=crop&crop=face&rounded=full" 
+                  alt="Carlos Silva" class="w-12 h-12 rounded-full mr-4">
+              <div>
+                <h3 class="font-bold text-lg text-gray-900">Carlos Silva</h3>
+                <p class="text-gray-500 text-sm">@carlosmusic</p>
+              </div>
+            </div>
+            <p class="text-gray-700 text-lg leading-relaxed">"Finalmente um app que entende músicos! As ferramentas de composição são incríveis."</p>
+          </div>
+
+          <!-- Slide 3 -->
+          <div class="w-full flex-shrink-0 bg-gray-50 p-8 rounded-2xl mx-4">
+            <div class="flex items-center mb-4">
+              <img src="https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=50&h=50&fit=crop&crop=face&rounded=full" 
+                  alt="Ana Costa" class="w-12 h-12 rounded-full mr-4">
+              <div>
+                <h3 class="font-bold text-lg text-gray-900">Ana Costa</h3>
+                <p class="text-gray-500 text-sm">@anacosta</p>
+              </div>
+            </div>
+            <p class="text-gray-700 text-lg leading-relaxed">"A qualidade do streaming é excepcional e descobri tantos artistas novos!"</p>
+          </div>
+        </div>
+      </div>
+      <!-- Navigation - Setas juntas no canto esquerdo -->
+      <div class="absolute left-8 bottom-0 flex items-center space-x-2">
+        <button id="prev-btn" class="w-8 h-8 flex items-center justify-center text-gray-400 hover:text-gray-600 transition-colors">
+          <svg class="w-5 h-5 text-black" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"/>
+          </svg>
+        </button>
+        
+        <button id="next-btn" class="w-8 h-8 flex items-center justify-center text-gray-400 hover:text-gray-600 transition-colors">
+          <svg class="w-5 h-5 text-black" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/>
+          </svg>
+        </button>
+      </div>
+
+      <!-- Dots Indicator - Canto direito -->
+      <div class="absolute right-8 bottom-1 flex space-x-2">
+        <button class="dot w-2 h-2 rounded-full bg-purple-600 transition-all" data-slide="0"></button>
+        <button class="dot w-2 h-2 rounded-full bg-gray-300 hover:bg-gray-400 transition-all" data-slide="1"></button>
+        <button class="dot w-2 h-2 rounded-full bg-gray-300 hover:bg-gray-400 transition-all" data-slide="2"></button>
+      </div>
+    </div>
   </section>
 
-  <section id="contato">
-    <h2>Fale com a gente</h2>
-    <p>Coletamos e-mails para futuras campanhas e, se quiser, envie sua foto de perfil para aparecer em destaques da comunidade.</p>
-    <form>
-      <label>Nome:<br><input type="text" name="nome"></label><br><br>
-      <label>E-mail:<br><input type="email" name="email"></label><br><br>
-      <label>Foto de perfil (opcional):<br><input type="file" name="foto"></label><br><br>
-      <label><input type="checkbox" name="consent"> Concordo em receber comunicações de marketing.</label><br><br>
-      <button type="submit">Enviar</button>
+  <section id="contato" class="flex justify-center gap-20 mb-10">
+    <div class="flex flex-col gap-4 max-w-lg self-start mr-20">
+      <div class="flex flex-col gap-4">
+        <h2 class="font-bold text-4xl">Fale com a gente</h2>
+        <p class="text-xl text-gray-500">Coletamos e-mails para futuras campanhas e, se quiser, envie sua foto de perfil para aparecer em destaques da comunidade.</p>
+      </div>
+      <div class="flex flex-col gap-4 mt-10">
+        <div class="flex items-center gap-2">
+          <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#7b3aec"><path d="M160-160q-33 0-56.5-23.5T80-240v-480q0-33 23.5-56.5T160-800h640q33 0 56.5 23.5T880-720v480q0 33-23.5 56.5T800-160H160Zm320-280L160-640v400h640v-400L480-440Zm0-80 320-200H160l320 200ZM160-640v-80 480-400Z"/></svg>
+          <p class="text-xl text-gray-500">Receba novidades e convites para o beta</p>
+        </div>
+        <div class="flex items-center gap-2">
+          <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#7b3aec"><path d="M480-480q-66 0-113-47t-47-113q0-66 47-113t113-47q66 0 113 47t47 113q0 66-47 113t-113 47ZM160-160v-112q0-34 17.5-62.5T224-378q62-31 126-46.5T480-440q66 0 130 15.5T736-378q29 15 46.5 43.5T800-272v112H160Zm80-80h480v-32q0-11-5.5-20T700-306q-54-27-109-40.5T480-360q-56 0-111 13.5T260-306q-9 5-14.5 14t-5.5 20v32Zm240-320q33 0 56.5-23.5T560-640q0-33-23.5-56.5T480-720q-33 0-56.5 23.5T400-640q0 33 23.5 56.5T480-560Zm0-80Zm0 400Z"/></svg>
+          <p class="text-xl text-gray-500">Upload de foto de perfil (opcional)</p>
+        </div>
+        <div class="flex items-center gap-2">
+          <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#7b3aec"><path d="M480-80q-139-35-229.5-159.5T160-516v-244l320-120 320 120v244q0 152-90.5 276.5T480-80Zm0-84q104-33 172-132t68-220v-189l-240-90-240 90v189q0 121 68 220t172 132Zm0-316Z"/></svg>
+          <p class="text-xl text-gray-500">Seus dados são tratados com segurança</p>
+        </div>
+      </div>
+    </div>
+    <form class="flex flex-col gap-4 ml-20">
+      <label class="text-1xl">Nome</label>
+      <input class="border p-3 rounded-xl" type="text" name="nome" placeholder="Seu nome" required>
+      <label class="text-1xl">E-mail</label>
+      <input class="border p-3 rounded-xl" type="email" name="email" placeholder="voce@exemplo.com" required>
+      <label class="text-1xl">Foto de perfil (opcional)</label>
+      <input class="file:bg-[#7b3aec] file:rounded-xl file:text-white file:font-semibold file:border-0 file:p-3 file:cursor-pointer file:hover:bg-[#6f2cbb]" type="file" name="foto">
+      <div class="flex items-center gap-2">
+        <input class="appearance-none w-5 h-5 border-2 border-gray-300 rounded-full bg-white checked:bg-[#7b3aec] checked:border-[#7b3aec] focus:outline-none cursor-pointer" type="checkbox" name="consent" required>
+        <label class="text-xl text-gray-500 max-w-lg">Concordo em receber comunicações de marketing.</label>
+      </div>
+      <button class="text-xl font-semibold bg-[#7b3aec] hover:bg-[#6f2cbb] hover:scale-105 text-white py-3 px-4 rounded-xl transition-all" type="submit"><i class="fas fa-paper-plane"></i>  Enviar</button>
     </form>
   </section>
 
-  <footer>
-    <p>© 2025 Melodia. Todos os direitos reservados.</p>
-    <p>Redes Sociais: Instagram | X </p>
-    <p><a>Política de Privacidade</a> | <a href="#">Termos de Uso</a></p>
+  <footer class="flex items-center justify-between" style="background: linear-gradient(30deg,#9d5de6 0%,#5da8e6 100%);">
+    <div class="flex items-center gap-2 mb-2 ml-3">
+      <div class="w-15 h-15 mt-3">
+        <img src="assets/logo.png" alt="Logo Melodia" class="w-full h-full object-cover" />
+      </div>
+      <div class="leading-tight">
+        <h2 class="text-3xl font-bold">Melodia</h2>
+        <p class="text-1xl font-bold">© 2025 Melodia.</p>
+        <p class="text-1xl font-bold">Todos os direitos reservados.</p>
+      </div>
+    </div>
+    <div class="flex flex-col items-center mt-4 pl-4 pr-4">
+      <p class="text-xl font-bold">Redes Sociais</p>
+      <div class="flex items-center justify-center gap-16 p-4">
+        <a href="#" class="hover:scale-110 transition-transform">
+          <img class="w-16 h-16" src="./assets/instagram-brands-solid-full.svg" alt="instagram">
+        </a>
+        <a href="#" class="hover:scale-110 transition-transform">
+          <img class="w-16 h-16" src="./assets/x-twitter-brands-solid-full.svg" alt="twitter">
+        </a>
+      </div>
+    </div>
+    <div class="flex flex-col items-center mr-10 gap-3">
+      <p class="text-xl font-bold">Políticas</p>
+      <p class="flex flex-col font-bold gap-3 underline">
+        <a href="#">Política de Privacidade</a>
+        <a href="#">Termos de Uso</a>
+      </p>
+    </div>
   </footer>
 
 </body>
+<script>
+  let currentSlide = 0;
+  const slides = document.querySelectorAll('#carousel-track > div');
+  const totalSlides = slides.length;
+  const track = document.getElementById('carousel-track');
+  const dots = document.querySelectorAll('.dot');
+
+  function updateCarousel() {
+    track.style.transform = `translateX(-${currentSlide * 100}%)`;
+    
+    // Update dots
+    dots.forEach((dot, index) => {
+      if (index === currentSlide) {
+        dot.classList.remove('bg-gray-300');
+        dot.classList.add('bg-purple-600');
+      } else {
+        dot.classList.remove('bg-purple-600');
+        dot.classList.add('bg-gray-300');
+      }
+    });
+  }
+
+  // Next button
+  document.getElementById('next-btn').addEventListener('click', () => {
+    currentSlide = (currentSlide + 1) % totalSlides;
+    updateCarousel();
+  });
+
+  // Previous button
+  document.getElementById('prev-btn').addEventListener('click', () => {
+    currentSlide = currentSlide === 0 ? totalSlides - 1 : currentSlide - 1;
+    updateCarousel();
+  });
+
+  // Dot navigation
+  dots.forEach((dot, index) => {
+    dot.addEventListener('click', () => {
+      currentSlide = index;
+      updateCarousel();
+    });
+  });
+</script>
 </html>
