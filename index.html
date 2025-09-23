@@ -46,23 +46,25 @@
       .note-bg { position: absolute; opacity: .9; }
   .note-left { left: -110px; top: 120px; transform: none; }
   .note-left-img { width: clamp(380px, 36vw, 700px); pointer-events: none; transform: none !important; }
-  @media (max-width: 640px) { .note-left { top: 108px; left: -80px; } .note-left-img { width: clamp(300px, 54vw, 500px); } }
+  @media (max-width: 768px) { .note-left { display: none; } }
+  @media (max-width: 1024px) { .note-left { display: none; } }
   @media (min-width: 1280px) { .note-left { top: 140px; left: -120px; } }
 
     /* notas (direita) */
   .note-right { right: -110px; top: 143px; transform: none; }
   .note-right-img { width: clamp(380px, 36vw, 700 px); pointer-events: none; }
-  @media (max-width: 640px) { .note-right { top: 126px; right: -80px; } .note-right-img{ width: clamp(300px, 54vw, 500px); } }
+  @media (max-width: 768px) { .note-right { display: none; } }
+  @media (max-width: 1024px) { .note-right { display: none; } }
   @media (min-width: 1280px) { .note-right { top: 163px; right: -120px; } }
     </style>
 </head>
 <body class="font-sans text-slate-900">
-  <!-- Hero Wrapper with gradient background and top border -->
+  
   <div class="relative overflow-hidden border-b-4 border-black" style="background: linear-gradient(90deg,#5de0e6 0%, #004aad 100%);">
     <!-- Header -->
     <header class="max-w-6xl mx-auto px-4 pt-5">
       <div class="flex items-center justify-between rounded-xl pb-3">
-        <!-- Logo / Brand -->
+        <!-- Logo  -->
         <a href="#inicio" class="flex items-center gap-3">
           <div class="w-12 h-12 rounded-xl border-2 border-black shadow-[4px_4px_0_0_rgba(0,0,0,0.8)] overflow-hidden">
             <img src="assets/logo.png" alt="Logo Melodia" class="w-full h-full object-cover" />
@@ -81,12 +83,12 @@
           <a href="#contato" class="hover:underline">Contato</a>
         </nav>
 
-        <!-- CTA -->
+        
         <a href="#comecar" class="ml-6 inline-block bg-sky-400 text-slate-900 font-semibold px-5 py-2 rounded-xl border-2 border-black shadow-[4px_4px_0_0_rgba(0,0,0,0.8)] hover:translate-y-0.5 hover:shadow-[2px_2px_0_0_rgba(0,0,0,0.8)] transition-transform">Começar Grátis</a>
       </div>
     </header>
 
-    <!-- Divider line under header -->
+    <!-- linha do header  -->
     <div class="h-[2px] bg-black/80"></div>
 
   <!-- Elemento musical (esquerda) -->
@@ -102,7 +104,7 @@
       <p class="mt-6 text-lg md:text-xl font-semibold max-w-3xl mx-auto">Descubra, crie e compartilhe melodias incríveis.<br> A plataforma completa para músicos e amantes da música.</p>
 
       <div class="mt-10 flex flex-col sm:flex-row items-center justify-center gap-6">
-        <a href="#ouvir" class="group inline-flex items-center gap-3 px-7 py-3 rounded-full bg-transparent border-2 border-slate-900 text-slate-900 font-semibold shadow-[4px_4px_0_0_rgba(0,0,0,0.8)] hover:translate-y-0.5 hover:shadow-[2px_2px_0_0_rgba(0,0,0,0.8)] transition-all">
+        <a href="#player" class="group inline-flex items-center gap-3 px-7 py-3 rounded-full bg-transparent border-2 border-slate-900 text-slate-900 font-semibold shadow-[4px_4px_0_0_rgba(0,0,0,0.8)] hover:translate-y-0.5 hover:shadow-[2px_2px_0_0_rgba(0,0,0,0.8)] transition-all">
           <span class="grid place-items-center w-8 h-8 rounded-full border border-slate-900 text-slate-900">
             <!-- inline play icon -->
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="16" height="16" fill="currentColor" aria-hidden="true" focusable="false">
@@ -127,79 +129,156 @@
   </div>
 
   <section id="beneficios" class="max-w-6xl mx-auto px-4 py-12">
-    <h2 class="font-black text-3xl text-center">Principais benefícios</h2>
-    <p class="text-center font-semibold ">Tudo que você precisa para criar, descobrir e compartilhar música!</p>
-    <ul class="mt-10 text-center grid gap-y-4 sm:grid-cols-3">
-      <li class="rounded-lg max-h-[62%] max-w-[80%]" style="background: linear-gradient(90deg,#5de0e6 0%, #004aad 100%);">
-        <img src="https://cdn.pixabay.com/photo/2015/05/11/22/11/musical-notes-763190_1280.png" alt="imagem musica" class="max-w[45%] max-h-[45%] m-auto mb-2 mt-4">
-        <h3 class="text-l font-bold mb-4">Criação Musical</h3>
-        <p class="max-w-60 mx-auto pb-3">Ferramentas profissionais para compor e arranjar suas melodias com facilidade.</p>
+    <h2 class="font-black text-3xl text-center mb-2">Principais benefícios</h2>
+    <p class="text-center font-semibold mb-10">Tudo que você precisa para criar, descobrir e compartilhar música!</p>
+    <ul class="grid grid-cols-1 md:grid-cols-3 gap-8 justify-items-center">
+      <li class="rounded-lg p-6 flex flex-col items-center text-center max-w-sm" style="background: linear-gradient(90deg,#5de0e6 0%, #004aad 100%);">
+        <img src="https://cdn.pixabay.com/photo/2015/05/11/22/11/musical-notes-763190_1280.png" alt="imagem musica" class="w-20 h-20 object-contain mb-4">
+        <h3 class="text-xl font-bold mb-4">Criação Musical</h3>
+        <p class="text-center">Ferramentas profissionais para compor e arranjar suas melodias com facilidade.</p>
       </li>
-      <li class="rounded-lg max-h-[62%] max-w-[80%]" style="background: linear-gradient(90deg,#5de0e6 0%, #004aad 100%);">
-        <img src="./assets/medalha.png" alt="imagem premium" class="max-w[50%] max-h-[50%] m-auto mb-2 mt-4">
-        <h3 class="text-l font-bold mb-4">Streaming Premium</h3>
-        <p class="max-w-60 mx-auto pb-3">Milhões de músicas em alta qualidade, disponíveis offline.</p>
+      <li class="rounded-lg p-6 flex flex-col items-center text-center max-w-sm" style="background: linear-gradient(90deg,#5de0e6 0%, #004aad 100%);">
+        <img src="./assets/medalha.png" alt="imagem premium" class="w-20 h-20 object-contain mb-4">
+        <h3 class="text-xl font-bold mb-4">Streaming Premium</h3>
+        <p class="text-center">Milhões de músicas em alta qualidade, disponíveis offline.</p>
       </li>
-      <li class="rounded-lg max-h-[62%] max-w-[80%]" style="background: linear-gradient(90deg,#5de0e6 0%, #004aad 100%);">
-        <img src="https://static.vecteezy.com/system/resources/previews/018/795/672/original/groups-or-comunity-icons-png.png" alt="imagem comunidade" class="max-w[50%] max-h-[50%] m-auto mb-2 mt-4">
-        <h3 class="text-l font-bold mb-4">Comunidade</h3>
-        <p class="max-w-60 mx-auto pb-3">Conecte-se com outros músicos e compartilhe suas criações.</p>
+      <li class="rounded-lg p-6 flex flex-col items-center text-center max-w-sm" style="background: linear-gradient(90deg,#5de0e6 0%, #004aad 100%);">
+        <img src="https://static.vecteezy.com/system/resources/previews/018/795/672/original/groups-or-comunity-icons-png.png" alt="imagem comunidade" class="w-20 h-20 object-contain mb-4" style="filter: brightness(0) saturate(100%);">
+        <h3 class="text-xl font-bold mb-4">Comunidade</h3>
+        <p class="text-center">Conecte-se com outros músicos e compartilhe suas criações.</p>
       </li>
     </ul>
   </section>
 
   <section id="funcionalidades" class="pt-10 pb-20" style="background: linear-gradient(90deg,#5de0e6 0%, #004aad 100%);">
-    <h2 class="ml-20 font-bold text-4xl mb-10">Funcionalidades</h2>
-    <ul class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 grid-rows-2 ">
-      <li class="text-center">
-        <h3 class="font-bold text-l">Player minimalista</h3>
-        <img src="https://tse4.mm.bing.net/th/id/OIP.LAmWD6v5F3xxQaySke4Z1wHaHa?pid=Api&P=0&h=180" alt="" class="bg-white rounded-lg w-20 ml-[42%]">
-        <p class="max-w-80 ml-20">Controles fluídos, fila inteligente e letras sincronizadas.</p>
-      </li>
-      <li class="text-center">
-        <h3 class="font-bold text-l">Equalizador & temas</h3>
-        <img src="https://tse3.mm.bing.net/th/id/OIP.AvwTzNDki6FIa0taeVGWOgHaHa?pid=Api&P=0&h=180" alt="" class="bg-white rounded-lg w-20 ml-[42%]">
-        <p class="max-w-80 ml-20">Ajuste graves/agudos e personalize a aparência do app.</p>
-      </li>
-      <li class="text-center">
-        <h3 class="font-bold text-l">Descoberta social</h3>
-        <img src="https://tse1.mm.bing.net/th/id/OIP.jO0M2JnVzIgSxleiNivcPAHaHa?pid=Api&P=0&h=180" alt="" class="bg-white rounded-lg w-20 ml-[42%]">
-        <p class="max-w-80 ml-20">Siga amigos, artistas e influenciadores para descobrir novidades.</p>
-      </li>
-      <li class="text-center">
-        <h3 class="font-bold text-l">Modo offline</h3>
-        <img src="https://tse3.mm.bing.net/th/id/OIP.SMCRkRLbtW7QovL-nr3fiQHaHa?pid=Api&P=0&h=180https://tse4.mm.bing.net/th/id/OIP.J0T7JJbLQcvUD-YstdhDygHaHa?pid=Api&P=0&h=180" alt="" class="bg-white rounded-lg w-20 ml-[42%]">
-        <p class="max-w-80 ml-20">Baixe playlists e ouça sem internet quando quiser.</p>
-      </li>
-      <li class="text-center">
-        <h3 class="font-bold text-l">Busca avançada</h3>
-        <img src="https://tse4.mm.bing.net/th/id/OIP.J0T7JJbLQcvUD-YstdhDygHaHa?pid=Api&P=0&h=180" alt="" class="bg-white rounded-lg w-20 ml-[42%]">
-        <p class="max-w-80 ml-20">Encontre por ritmo, humor, década ou instrumentos.</p>
-      </li>
-      <li class="text-center mb-20">
-        <h3 class="font-bold text-l">Privacidade em 1 clique</h3>
-        <img src="https://png.pngtree.com/png-vector/20190228/ourmid/pngtree-padlock-icon-design-template-vector-isolated-png-image_711389.jpg" alt="" class="bg-white rounded-lg w-20 ml-[42%]">
-        <p class="max-w-80 ml-20">Controles simples para sua segurança.</p>
-      </li>
-    </ul>
-  </section>
-
-  <section id="player" class="text-center mt-20 mb-40">
-    <h2 class="font-black text-4xl mb-3">Player Profissional</h2>
-    <p class="font-black text-l mb-10">Experimente nossa interface intuitiva</p>
-    <div class="max-w-[50%] ml-80 pt-7 pb-7 rounded-3xl" style="background: linear-gradient(90deg,#9d5de6 0%,#5da8e6 100%);">
-      <p class="-mt-4">Swing</p>
-      <div class="-mb-20 mt-4">
-        <input type="range" class="w-80 accent-black">
-        <img src="./assets/setaEsquerda.png" alt="" class="max-w-[5%] ml-[36.6%] mt-3 -mb-[6.94%] hover:cursor-pointer">
-        <img src="https://svgsilh.com/svg_v2/888513.svg" alt="" class="max-w-[8%] ml-[45%] -mt-[5%] hover:cursor-pointer">
-        <img src="./assets/setaDiteita.png" alt="" class="max-w-[5%] ml-[57%] -mt-[6.2%] hover:cursor-pointer">
-      </div>
-      <img src='https://i1.sndcdn.com/artworks-000341650620-v8st1e-t500x500.jpg' class="max-w-[8%] rounded-lg ml-10">
-      <p class="-ml-[80%] text-sm">peyruis</p>
-      
+    <div class="max-w-6xl mx-auto px-4">
+      <h2 class="font-bold text-4xl mb-10 text-center">Funcionalidades</h2>
+      <ul class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 justify-items-center">
+        <li class="text-center flex flex-col items-center max-w-xs">
+          <h3 class="font-bold text-xl mb-4">Player minimalista</h3>
+          <img src="https://tse4.mm.bing.net/th/id/OIP.LAmWD6v5F3xxQaySke4Z1wHaHa?pid=Api&P=0&h=180" alt="" class="bg-white rounded-lg w-20 h-20 mb-4">
+          <p class="text-center">Controles fluídos, fila inteligente e letras sincronizadas.</p>
+        </li>
+        <li class="text-center flex flex-col items-center max-w-xs">
+          <h3 class="font-bold text-xl mb-4">Equalizador & temas</h3>
+          <img src="https://tse3.mm.bing.net/th/id/OIP.AvwTzNDki6FIa0taeVGWOgHaHa?pid=Api&P=0&h=180" alt="" class="bg-white rounded-lg w-20 h-20 mb-4">
+          <p class="text-center">Ajuste graves/agudos e personalize a aparência do app.</p>
+        </li>
+        <li class="text-center flex flex-col items-center max-w-xs">
+          <h3 class="font-bold text-xl mb-4">Descoberta social</h3>
+          <img src="https://tse1.mm.bing.net/th/id/OIP.jO0M2JnVzIgSxleiNivcPAHaHa?pid=Api&P=0&h=180" alt="" class="bg-white rounded-lg w-20 h-20 mb-4">
+          <p class="text-center">Siga amigos, artistas e influenciadores para descobrir novidades.</p>
+        </li>
+        <li class="text-center flex flex-col items-center max-w-xs">
+          <h3 class="font-bold text-xl mb-4">Modo offline</h3>
+          <img src="https://tse3.mm.bing.net/th/id/OIP.SMCRkRLbtW7QovL-nr3fiQHaHa?pid=Api&P=0&h=180" alt="" class="bg-white rounded-lg w-20 h-20 mb-4">
+          <p class="text-center">Baixe playlists e ouça sem internet quando quiser.</p>
+        </li>
+        <li class="text-center flex flex-col items-center max-w-xs">
+          <h3 class="font-bold text-xl mb-4">Busca avançada</h3>
+          <img src="https://tse4.mm.bing.net/th/id/OIP.J0T7JJbLQcvUD-YstdhDygHaHa?pid=Api&P=0&h=180" alt="" class="bg-white rounded-lg w-20 h-20 mb-4">
+          <p class="text-center">Encontre por ritmo, humor, década ou instrumentos.</p>
+        </li>
+        <li class="text-center flex flex-col items-center max-w-xs">
+          <h3 class="font-bold text-xl mb-4">Privacidade em 1 clique</h3>
+          <img src="https://png.pngtree.com/png-vector/20190228/ourmid/pngtree-padlock-icon-design-template-vector-isolated-png-image_711389.jpg" alt="" class="bg-white rounded-lg w-20 h-20 mb-4">
+          <p class="text-center">Controles simples para sua segurança.</p>
+        </li>
+      </ul>
     </div>
   </section>
+
+  <section id="player" class="max-w-6xl mx-auto px-4 py-20">
+    <div class="text-center mb-10">
+      <h2 class="font-black text-4xl mb-3">Player Profissional</h2>
+      <p class="font-black text-xl">Experimente nossa interface intuitiva</p>
+    </div>
+    
+    <div class="max-w-lg mx-auto p-8 rounded-3xl" style="background: linear-gradient(90deg,#9d5de6 0%,#5da8e6 100%);">
+      <!-- Título da música -->
+      <p class="text-center font-semibold mb-6 text-lg">Swing</p>
+      
+      <!-- Capa do álbum -->
+      <div class="flex justify-center mb-6">
+        <img src='https://i1.sndcdn.com/artworks-000341650620-v8st1e-t500x500.jpg' class="w-32 h-32 rounded-lg object-cover" alt="Capa do álbum">
+      </div>
+      
+      <!-- Artista -->
+      <p class="text-center text-sm font-medium mb-6">peyruis</p>
+      
+      <!-- Barra de progresso com tempo -->
+      <div class="mb-6">
+        <div class="flex justify-between text-xs text-white mb-2">
+          <span>1:23</span>
+          <span>3:45</span>
+        </div>
+        <input type="range" class="w-full accent-black" value="35" aria-label="Progresso da música">
+      </div>
+      
+      <!-- Controles do player -->
+      <div class="flex justify-center items-center gap-6 mb-6">
+        <img src="./assets/setaEsquerda.png" alt="Música anterior" class="w-8 h-8 hover:cursor-pointer hover:opacity-80 transition-opacity">
+        <img src="https://svgsilh.com/svg_v2/888513.svg" alt="Play/Pause" class="w-12 h-12 hover:cursor-pointer hover:opacity-80 transition-opacity">
+        <img src="./assets/setaDiteita.png" alt="Próxima música" class="w-8 h-8 hover:cursor-pointer hover:opacity-80 transition-opacity">
+      </div>
+      
+      <!-- Controles adicionais -->
+      <div class="space-y-4">
+        <!-- Controle de volume -->
+        <div class="flex items-center gap-3">
+          <svg class="w-5 h-5 text-white" fill="currentColor" viewBox="0 0 20 20">
+            <path fill-rule="evenodd" d="M9.383 3.076A1 1 0 0110 4v12a1 1 0 01-1.617.816L4.29 13.37a.5.5 0 00-.303-.107H3a1 1 0 01-1-1V7.737a1 1 0 011-1h.987a.5.5 0 00.303-.107l4.093-3.446z" clip-rule="evenodd"></path>
+            <path d="M12.293 7.293a1 1 0 011.414 0L15 8.586l1.293-1.293a1 1 0 111.414 1.414L16.414 10l1.293 1.293a1 1 0 01-1.414 1.414L15 11.414l-1.293 1.293a1 1 0 01-1.414-1.414L13.586 10l-1.293-1.293a1 1 0 010-1.414z"></path>
+          </svg>
+          <input type="range" class="flex-1 accent-black" value="75" max="100" aria-label="Volume">
+          <span class="text-xs text-white w-8">75%</span>
+        </div>
+        
+        <!-- Botões de funcionalidades -->
+        <div class="flex justify-center gap-4">
+          <!-- Botão Ver Letras -->
+          <button class="flex items-center gap-2 bg-black/20 hover:bg-black/30 px-4 py-2 rounded-lg text-white text-sm font-medium transition-colors">
+            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"></path>
+            </svg>
+            Ver Letras
+          </button>
+        </div>
+        
+        <!-- Área de letras (inicialmente oculta) -->
+        <div id="lyrics-area" class="hidden bg-black/20 p-4 rounded-lg text-white text-sm leading-relaxed max-h-32 overflow-y-auto">
+          <p class="mb-2"><strong>Swing</strong> - peyruis</p>
+          <p class="text-xs opacity-80">
+            Quando o swing começar a tocar<br>
+            Meu coração vai acelerar<br>
+            O ritmo que me faz dançar<br>
+            É a música que me faz sonhar<br><br>
+            
+            No compasso do jazz que vem<br>
+            Cada nota é um bem<br>
+            Que me leva além<br>
+            Do que posso ver também...
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <script>
+    // Funcionalidade para mostrar/ocultar letras
+    document.addEventListener('DOMContentLoaded', function() {
+      const lyricsButton = document.querySelector('button:has(svg path[d*="M9 12h6"])');
+      const lyricsArea = document.getElementById('lyrics-area');
+      
+      if (lyricsButton && lyricsArea) {
+        lyricsButton.addEventListener('click', function() {
+          lyricsArea.classList.toggle('hidden');
+          const buttonText = lyricsArea.classList.contains('hidden') ? 'Ver Letras' : 'Ocultar Letras';
+          lyricsButton.childNodes[2].textContent = buttonText;
+        });
+      }
+    });
+  </script>
 
   <section id="feedback">
     <h2>O que dizem os usuários</h2>
